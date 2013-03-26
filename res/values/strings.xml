@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SimLiKar</string>
+    <string name="search_hint">Enter address or name</string>
+    <string name="create">Create</string>
+    <string name="ill_card">Ambulance card</string>
+    <string name="last_name">Last name</string>
+    <string name="first_name">First name</string>
+    <string name="middle_name">Middle name</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="main_data">Main data</string>
+    <string name="gender">Gender</string>
+    <string name="birth_date">Birth date</string>
+    <string name="insurance_group">Insurance group</string>
+    <string name="insurance_num">Insurance number</string>
+    <string name="save">Save</string>
+    <string name="signal_data">Signal data</string>
+    <string name="blood_group">Blood group</string>
+    <string name="rh_factor_hint">Rh factor</string>
+    <string name="transfusions">Blood transfusions</string>
+    <string name="diabetes">Diabetes mellitus</string>
+    <string name="infection_diseases">Infection diseases</string>
+    <string name="surgery_cases">Surgery cases</string>
+    <string name="allergic_anamnesis">Allergic anamnesis</string>
+    <string name="drug_intolerance">Drug intolerance</string>
+    <string name="error_already_exists">Error: Patient exists</string>
+    <string name="work_address">Work address</string>
+    <string name="street_hint">st.</string>
+    <string name="street">Street</string>
+    <string name="flat_hint">fl.</string>
+    <string name="flat_num">Flat num</string>
+    <string name="live_address">Live address</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log in</string>
+    <string name="logging_in">Logging in...</string>
+    <string name="wait_please">Please wait...</string><string name="fio">FIO</string>
+    <string-array name="genders">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+</resources>

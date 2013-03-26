@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_hint">Введите адрес и имя</string>
+    <string name="create">Создать</string>
+    <string name="ill_card">Амбулаторная карта</string>
+    <string name="last_name">Фамилия</string>
+    <string name="first_name">Имя</string>
+    <string name="middle_name">Отчество</string>
+    <string name="back">Назад</string>
+    <string name="next">Далее</string>
+    <string name="main_data">Основная информация</string>
+    <string name="gender">Пол</string>
+    <string name="birth_date">Дата рождения</string>
+    <string name="insurance_group">Льготная группа</string>
+    <string name="insurance_num">Номер льготного удостоверения</string>
+    <string name="save">Сохранить</string>
+    <string name="signal_data">Сигнальные отметки</string>
+    <string name="blood_group">Группа крови</string>
+    <string name="rh_factor_hint">Резус-фактор</string>
+    <string name="transfusions">Переливания крови</string>
+    <string name="diabetes">Сахарный диабет</string>
+    <string name="infection_diseases">Инфекционные заболевания</string>
+    <string name="surgery_cases">Случаи хирургического вмешательства</string>
+    <string name="allergic_anamnesis">Аллергический анамнез</string>
+    <string name="drug_intolerance">Непереносимость к лекарствам</string>
+    <string name="error_already_exists">Ошибка: Пациент существует</string>
+    <string name="work_address">Место работы</string>
+    <string name="street_hint">ул.</string>
+    <string name="street">Улица</string>
+    <string name="flat_hint">кв.</string>
+    <string name="flat_num">Квартира</string>
+    <string name="live_address">Место жительства</string>
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="log_in">Вход</string>
+    <string name="logging_in">Вход...</string>
+    <string name="wait_please">Пожалуйста, подождите...</string><string name="fio">FIO</string>
+    <string-array name="genders">
+        <item>Мужской</item>
+        <item>Женский</item>
+    </string-array>
+</resources>

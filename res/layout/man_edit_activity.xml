@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_data"
+            android:id="@+id/data_cover_hint"
+            android:gravity="center_horizontal"
+            android:textAppearance="@android:style/TextAppearance.Medium"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fio"
+            android:id="@+id/fio_cover_hint"
+            android:layout_gravity="left|center_vertical"
+            android:textColor="@android:color/white"/>
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/fio_cover_text"
+            android:inputType="textCapWords"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/birth_date"
+            android:id="@+id/birth_cover_hint"
+            android:textColor="@android:color/white"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/birth_cover_text"
+            android:inputType="textCapWords"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/work_address"
+            android:id="@+id/work_cover_hint"
+            android:textColor="@android:color/white"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/work_cover_text"
+            android:layout_gravity="left|center_vertical"
+            android:hint="@string/middle_name"
+            android:inputType="textCapWords"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/live_address"
+            android:id="@+id/live_cover_hint"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ill_card"
+            android:id="@+id/ill_card"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:gravity="center_vertical|center_horizontal"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/scrollView"
+            android:layout_weight="1"
+            android:isScrollContainer="false">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/data_layout"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/main_data_layout"
+                    android:visibility="visible"
+                    android:tag="0">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/main_data"
+                        android:id="@+id/main_data_hint"
+                        android:gravity="center_horizontal"
+                        android:textAppearance="@android:style/TextAppearance.Medium"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/last_name"
+                        android:id="@+id/last_name_hint"
+                        android:layout_gravity="left|center_vertical"
+                        android:textColor="@android:color/white"/>
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/last_name"
+                        android:hint="@string/last_name"
+                        android:inputType="textCapWords"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/first_name"
+                        android:id="@+id/first_name_hint"
+                        android:textColor="@android:color/white"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/first_name"
+                        android:hint="@string/first_name"
+                        android:inputType="textCapWords"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/middle_name"
+                        android:id="@+id/middle_name_hint"
+                        android:textColor="@android:color/white"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/middle_name"
+                        android:layout_gravity="left|center_vertical"
+                        android:hint="@string/middle_name"
+                        android:inputType="textCapWords"/>
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/work_address"
+                        android:id="@+id/work_address_hint"
+                        android:textColor="@android:color/white"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/work_address_layout">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/street_hint"
+                            android:id="@+id/street_hint"/>
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/street"
+                            android:hint="@string/street"
+                            android:layout_weight="1"
+                            android:inputType="textCapWords"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/flat_hint"
+                            android:id="@+id/flat_hint"/>
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/flat_num"
+                            android:hint="@string/flat_num"
+                            android:inputType="number"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/live_address"
+                        android:id="@+id/live_address_hint"
+                        android:textColor="@android:color/white"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/live_address_layout">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/street_hint"
+                            android:id="@+id/street_hint"/>
+
+                        <EditText
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/street"
+                            android:hint="@string/street"
+                            android:layout_weight="1"
+                            android:inputType="textCapWords"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/flat_hint"
+                            android:id="@+id/flat_hint"/>
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/flat_num"
+                            android:hint="@string/flat_num"
+                            android:inputType="number"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gender"
+                        android:id="@+id/gender_hint"
+                        android:layout_gravity="left|center_vertical"
+                        android:textColor="@android:color/white"/>
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/gender_spinner"
+                        android:entries="@array/genders"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/birth_date"
+                        android:id="@+id/birth_date_hint"
+                        android:layout_gravity="left|center_vertical"
+                        android:textColor="@android:color/white"/>
+
+                    <DatePicker
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/birth_date"
+                        android:startYear="1900"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/insurance_group"
+                        android:id="@+id/insurance_group_hint"
+                        android:layout_gravity="left|center_vertical"
+                        android:textColor="@android:color/white"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/insurance_group"
+                        android:layout_gravity="left|center_vertical"
+                        android:hint="@string/insurance_group"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/insurance_num"
+                        android:id="@+id/insurance_num_hint"
+                        android:layout_gravity="left|center_vertical"
+                        android:textColor="@android:color/white"/>
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/insurance_num"
+                        android:hint="@string/insurance_num"
+                        android:inputType="number"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/signal_data_layout"
+                    android:tag="1"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/signal_data"
+                        android:id="@+id/signal_data_hint"
+                        android:gravity="center_horizontal"
+                        android:textAppearance="@android:style/TextAppearance.Medium"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/blood_group"
+                        android:id="@+id/blood_group_hint"
+                        android:layout_gravity="left|center_vertical"
+                        android:textColor="@android:color/white"/>
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/blood_group"
+                        android:hint="@string/blood_group"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rh_factor_hint"
+                        android:id="@+id/rh_factor_hint"
+                        android:textColor="@android:color/white"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rh_factor"
+                        android:hint="@string/rh_factor_hint"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/transfusions"
+                        android:id="@+id/transfusions_hint"
+                        android:textColor="@android:color/white"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/transfusions"
+                        android:layout_gravity="left|center_vertical"
+                        android:hint="@string/transfusions"
+                        android:inputType="textMultiLine"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/diabetes"
+                        android:id="@+id/diabetes_hint"
+                        android:layout_gravity="left|center_vertical"
+                        android:textColor="@android:color/white"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/diabetes"
+                        android:layout_gravity="left|center_vertical"
+                        android:hint="@string/diabetes"
+                        android:inputType="textMultiLine"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/infection_diseases"
+                        android:id="@+id/infection_diseases_hint"
+                        android:layout_gravity="left|center_vertical"
+                        android:textColor="@android:color/white"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/infection_diseases"
+                        android:layout_gravity="left|center_vertical"
+                        android:hint="@string/infection_diseases"
+                        android:inputType="textMultiLine"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/surgery_cases"
+                        android:id="@+id/surgery_cases_hint"
+                        android:layout_gravity="left|center_vertical"
+                        android:textColor="@android:color/white"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/surgery_cases"
+                        android:layout_gravity="left|center_vertical"
+                        android:hint="@string/surgery_cases"
+                        android:inputType="textMultiLine"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/allergic_anamnesis"
+                        android:id="@+id/allergic_anamnesis_hint"
+                        android:layout_gravity="left|center_vertical"
+                        android:textColor="@android:color/white"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/allergic_anamnesis"
+                        android:layout_gravity="left|center_vertical"
+                        android:hint="@string/allergic_anamnesis"
+                        android:inputType="textMultiLine"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/drug_intolerance"
+                        android:id="@+id/drug_intolerance_hint"
+                        android:layout_gravity="left|center_vertical"
+                        android:textColor="@android:color/white"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/drug_intolerance"
+                        android:layout_gravity="left|center_vertical"
+                        android:hint="@string/drug_intolerance"
+                        android:inputType="textMultiLine"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/back"
+                android:id="@+id/back_button"
+                android:layout_gravity="left|center_vertical"
+                android:layout_weight="0.5"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:id="@+id/save_button"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next"
+                android:id="@+id/next_button"
+                android:layout_gravity="right|center_vertical"
+                android:layout_weight="0.5"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
