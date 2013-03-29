@@ -34,7 +34,7 @@ public class PeopleAdapter extends CursorAdapter
         TextView address = (TextView) view.findViewById(R.id.address);
         TextView name = (TextView) view.findViewById(R.id.full_name);
         name.setText(cursor.getString(1) + " " + cursor.getString(2) + " " + cursor.getString(3));
-        address.setText(context.getString(R.string.street_hint) + " " + cursor.getString(19) + " " + context.getString(R.string.flat_hint) + " " + cursor.getString(20));
+        address.setText(context.getString(R.string.city) + cursor.getString(19) + " " + context.getString(R.string.street_hint) + cursor.getString(20) + " " + cursor.getString(21) + " " + context.getString(R.string.flat_hint) + cursor.getString(22));
     }
 
     @Override

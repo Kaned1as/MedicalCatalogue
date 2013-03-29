@@ -37,9 +37,11 @@ public class MedDatabase extends SQLiteOpenHelper
     static final String addressTable="address";
     static final Map<String, String> addressCols = new LinkedHashMap<String, String>()
     {{
-        put("ID", "_id");
-        put("street", "STREET_NAME");
-        put("flat", "FLAT");
+        put("ID", "_id");                                  // 18 // 23
+        put("city", "CITY_NAME");                          // 19 // 24
+        put("street", "STREET_NAME");                      // 20 // 25
+        put("street_num", "STREET_NUM");                   // 21 // 26
+        put("flat", "FLAT");                               // 22 // 27
     }};
 
     static final String mainQuery = "SELECT * FROM " + peopleTable + " AS p" +
@@ -90,11 +92,15 @@ public class MedDatabase extends SQLiteOpenHelper
         sqLiteDatabase.execSQL("CREATE TABLE " + addressTable + " (" +
                 addressKeys[0] +" INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 addressKeys[1] +" TEXT, " +
-                addressKeys[2] +" INTEGER" +
+                addressKeys[2] +" TEXT, " +
+                addressKeys[3] +" INTEGER, " +
+                addressKeys[4] +" INTEGER" +
                 ")");
 
         sqLiteDatabase.execSQL("CREATE UNIQUE INDEX " + "ADDRESS_UNIQUITY ON " + addressTable + "(" +
+                addressCols.get("city") + ", " +
                 addressCols.get("street") + ", " +
+                addressCols.get("street_num") + ", " +
                 addressCols.get("flat") +
                 ")");
     }

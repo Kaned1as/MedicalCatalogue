@@ -2,7 +2,7 @@
 <resources>
     <string name="search_hint">Введите адрес и имя</string>
     <string name="create">Создать</string>
-    <string name="ill_card">Амбулаторная карта</string>
+    <string name="ill_card">Карта амбулаторного больного</string>
     <string name="last_name">Фамилия</string>
     <string name="first_name">Имя</string>
     <string name="middle_name">Отчество</string>
@@ -34,7 +34,17 @@
     <string name="password">Пароль</string>
     <string name="log_in">Вход</string>
     <string name="logging_in">Вход...</string>
-    <string name="wait_please">Пожалуйста, подождите...</string><string name="fio">FIO</string>
+    <string name="wait_please">Пожалуйста, подождите...</string>
+    <string name="fio">Ф.И.О.</string>
+    <string name="city">г.</string>
+    <string name="street_num">Дом</string>
+    <string name="show_patient">Просмотреть</string>
+    <string name="date_accessed">Дата осмотра</string>
+    <string name="diagnosis_list">Лист заключительных диагнозов</string>
+    <string name="final_diagnosis">Заключительные диагнозы</string>
+    <string name="first_diagnosis">Впервые установлен диагноз?</string>
+    <string name="with_prof_overview">В т.ч. установлен впервые при профосмотре?</string>
+    <string name="doctor_fio">Ф.И.О. врача</string>
     <string-array name="genders">
         <item>Мужской</item>
         <item>Женский</item>

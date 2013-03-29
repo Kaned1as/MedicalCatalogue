@@ -35,7 +35,17 @@
     <string name="password">Password</string>
     <string name="log_in">Log in</string>
     <string name="logging_in">Logging in...</string>
-    <string name="wait_please">Please wait...</string><string name="fio">FIO</string>
+    <string name="wait_please">Please wait...</string>
+    <string name="fio">FIO</string>
+    <string name="city">City</string>
+    <string name="street_num">House</string>
+    <string name="show_patient">Show</string>
+    <string name="date_accessed">Date accessed</string>
+    <string name="diagnosis_list">Final diagnosis list</string>
+    <string name="final_diagnosis">Final diagnosis</string>
+    <string name="first_diagnosis">First time diagnosis</string>
+    <string name="with_prof_overview">With prof overview</string>
+    <string name="doctor_fio">Doctor\'s FIO</string>
     <string-array name="genders">
         <item>Male</item>
         <item>Female</item>
