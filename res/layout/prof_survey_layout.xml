@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/prof_survey"
+        android:id="@+id/prof_survey_hint"
+        android:gravity="center_horizontal"
+        android:textAppearance="@android:style/TextAppearance.Medium"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fluorography"
+        android:id="@+id/fluorography_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fluorography_cab"
+        android:hint="@string/cab"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fluorography_date"
+        android:hint="@string/date"
+        android:inputType="date"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gynecologist"
+        android:id="@+id/gynecologist_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gynecologist_cab"
+        android:hint="@string/cab"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gynecologist_date"
+        android:hint="@string/date"
+        android:inputType="date"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cytological"
+        android:id="@+id/cytological_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cytological_cab"
+        android:hint="@string/cab"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cytological_date"
+        android:hint="@string/date"
+        android:inputType="date"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/boobs"
+        android:id="@+id/boobs_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/boobs_cab"
+        android:hint="@string/cab"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/boobs_date"
+        android:hint="@string/date"
+        android:inputType="date"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/surgery"
+        android:id="@+id/surgery_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/surgery_cab"
+        android:hint="@string/cab"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/boobs_date"
+        android:hint="@string/date"
+        android:inputType="date"/>
+
+</merge>

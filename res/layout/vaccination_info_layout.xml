@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/vaccination_list"
+        android:id="@+id/vaccination_list_hint"
+        android:gravity="center_horizontal"
+        android:textAppearance="@android:style/TextAppearance.Medium"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vaccination_name"
+        android:id="@+id/vaccination_name_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/vaccination_name"
+        android:hint="@string/vaccination_name"
+        android:inputType="textCapWords"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vaccination_date"
+        android:id="@+id/vaccination_date_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/vaccination_date"
+        android:hint="@string/vaccination_date"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vaccination_age"
+        android:id="@+id/vaccination_age_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/vaccination_age"
+        android:hint="@string/vaccination_age"
+        android:inputType="date"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vaccination_dose"
+        android:id="@+id/vaccination_dose_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/vaccination_dose"
+        android:hint="@string/vaccination_dose"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vaccination_serial"
+        android:id="@+id/vaccination_serial_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/vaccination_serial"
+        android:hint="@string/vaccination_serial"
+        android:inputType="number"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vaccination_title"
+        android:id="@+id/vaccination_title_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/vaccination_title"
+        android:hint="@string/vaccination_title"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/inject_type"
+        android:id="@+id/inject_type_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/inject_type"
+        android:hint="@string/inject_type"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/inject_reaction"
+        android:id="@+id/inject_reaction_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/inject_reaction"
+        android:hint="@string/inject_reaction"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/med_contraindications"
+        android:id="@+id/med_contraindications_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/med_contraindications"
+        android:hint="@string/med_contraindications"
+        android:inputType="textCapSentences"/>
+
+</merge>

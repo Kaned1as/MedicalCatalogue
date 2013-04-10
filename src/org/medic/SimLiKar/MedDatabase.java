@@ -20,36 +20,35 @@ public class MedDatabase extends SQLiteOpenHelper
             put("middleName", "MIDDLE_NAME");               // 3
             put("gender", "GENDER");                        // 4
             put("liveAddrID", "LIVE_ADDRESS_ID");           // 5
-            put("workAddrID", "WORK_ADDR_ID");              // 6
+            put("workAddr", "WORK_PLACE");                  // 6
             put("birthDate", "BIRTH_DATE");                 // 7
             put("insuranceGroup", "INSURANCE_GROUP");       // 8
             put("insuranceNumber", "INSUR_NUMBER");         // 9
             put("signalMarks", "SIGNAL_MARKS");             // 10
             put("finalDiagnosisSheet", "FINAL_DIAG_SHEET"); // 11
             put("vaccinationInfo", "VACCINATION_INFO");     // 12
-            put("illDates", "ILL_DATES");                   // 13
-            put("hospitalInfo", "HOSPITAL_INFO");           // 14
-            put("illDiary", "ILL_DIARY");                   // 15
-            put("yearlyEpicrisis", "YEARLY_EPIC");          // 16
-            put("nextYearPlan", "NEXT_PLAN");               // 17
+            put("profSurvey", "PROF_SURVEY");               // 13
+            put("illDates", "ILL_DATES");                   // 14
+            put("hospitalInfo", "HOSPITAL_INFO");           // 15
+            put("illDiary", "ILL_DIARY");                   // 16
+            put("yearlyEpicrisis", "YEARLY_EPIC");          // 17
+            put("nextYearPlan", "NEXT_PLAN");               // 18
     }};
 
     static final String addressTable="address";
     static final Map<String, String> addressCols = new LinkedHashMap<String, String>()
     {{
-        put("ID", "_id");                                  // 18 // 23
-        put("city", "CITY_NAME");                          // 19 // 24
-        put("street", "STREET_NAME");                      // 20 // 25
-        put("street_num", "STREET_NUM");                   // 21 // 26
-        put("flat", "FLAT");                               // 22 // 27
+        put("ID", "_id");                                  // 19
+        put("city", "CITY_NAME");                          // 20
+        put("street", "STREET_NAME");                      // 21
+        put("street_num", "STREET_NUM");                   // 22
+        put("flat", "FLAT");                               // 23
     }};
 
-    static final String mainQuery = "SELECT * FROM " + peopleTable + " AS p" +
-            " INNER JOIN " + addressTable +" AS la ON p." + peopleCols.get("liveAddrID") + "=la." + addressCols.get("ID") +
-            " LEFT JOIN " + addressTable +" AS wa ON p." + peopleCols.get("workAddrID") + "=wa." + addressCols.get("ID");
+    static final String addressQuery = "SELECT * FROM " + addressTable;
 
-    static final String mainQueryWithParams = mainQuery +   " WHERE p." + peopleCols.get("lastName") + " || ' ' || p." + peopleCols.get("firstName") + " || ' ' || p." + peopleCols.get("firstName") +
-                                                            " || ' ' || la." + addressCols.get("street") + " || ' ' || la." + addressCols.get("flat");
+    static final String mainQuery = "SELECT * FROM " + peopleTable + " AS p" +
+            " INNER JOIN " + addressTable +" AS la ON p." + peopleCols.get("liveAddrID") + "=la." + addressCols.get("ID");
 
     public MedDatabase(Context context)
     {
@@ -68,7 +67,7 @@ public class MedDatabase extends SQLiteOpenHelper
                 peopleKeys[3] + " TEXT DEFAULT '', " +
                 peopleKeys[4] + " INTEGER DEFAULT 0, " +
                 peopleKeys[5] + " INTEGER DEFAULT -1, " +
-                peopleKeys[6] + " INTEGER DEFAULT -1, " +
+                peopleKeys[6] + " TEXT DEFAULT '', " +
                 peopleKeys[7] + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP, " +
                 peopleKeys[8] + " TEXT DEFAULT '', " +
                 peopleKeys[9] + " TEXT DEFAULT '', " +
@@ -79,7 +78,8 @@ public class MedDatabase extends SQLiteOpenHelper
                 peopleKeys[14] + " TEXT DEFAULT '', " +
                 peopleKeys[15] + " TEXT DEFAULT '', " +
                 peopleKeys[16] + " TEXT DEFAULT '', " +
-                peopleKeys[17] + " TEXT DEFAULT ''" +
+                peopleKeys[17] + " TEXT DEFAULT '', " +
+                peopleKeys[18] + " TEXT DEFAULT ''" +
                 ")");
 
         sqLiteDatabase.execSQL("CREATE UNIQUE INDEX " + "EVERY_MAN_FOR_HIMSELF ON " + peopleTable + "(" +

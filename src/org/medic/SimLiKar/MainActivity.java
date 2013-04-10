@@ -1,6 +1,7 @@
 package org.medic.SimLiKar;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
@@ -9,12 +10,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 
-public class MainActivity extends Activity implements View.OnClickListener, AdapterView.OnItemClickListener {
+public class MainActivity extends Activity implements View.OnClickListener
+{
     EditText mSearchEdit;
     Button mConfirm, mCreate, mLogin;
-    ListView mPeopleList;
+    ListView mAddressList, mPeopleList;
     SQLiteDatabase mDatabase;
-    CursorAdapter peopleListAdapter;
+    CursorAdapter addressAdapter, peopleAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -23,7 +25,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Adap
         setContentView(R.layout.main);
 
         // База данных больных
-        mDatabase = new MedDatabase(this).getWritableDatabase();
+        mDatabase = new MedDatabase(this).getReadableDatabase();
 
         mSearchEdit = (EditText) findViewById(R.id.search_edit);
         mConfirm = (Button) findViewById(R.id.confirm_button);
@@ -33,9 +35,10 @@ public class MainActivity extends Activity implements View.OnClickListener, Adap
         mLogin = (Button) findViewById(R.id.login_button);
         mLogin.setOnClickListener(this);
 
-
-        mPeopleList = (ListView) findViewById(R.id.clients_list);
-        mPeopleList.setOnItemClickListener(this);
+        mAddressList = (ListView) findViewById(R.id.address_list);
+        mPeopleList = (ListView) findViewById(R.id.patient_list);
+        mPeopleList.setOnItemClickListener(new manClickListener());
+        mAddressList.setOnItemClickListener(new addressClickListener());
     }
 
     @Override
@@ -44,9 +47,9 @@ public class MainActivity extends Activity implements View.OnClickListener, Adap
         super.onStart();
         //String [] columns = MedDatabase.peopleCols.values().toArray(new String[MedDatabase.peopleCols.values().size()]);
         //Cursor cur = mDatabase.query(MedDatabase.peopleTable, columns, null, null, null, null, null);
-        Cursor cur = mDatabase.rawQuery(MedDatabase.mainQuery, null);
-        peopleListAdapter = new PeopleAdapter(this, cur);
-        mPeopleList.setAdapter(peopleListAdapter);
+        Cursor cur = mDatabase.rawQuery(MedDatabase.addressQuery, null);
+        addressAdapter = new AddressAdapter(this, cur);
+        mAddressList.setAdapter(addressAdapter);
     }
 
     @Override
@@ -55,25 +58,52 @@ public class MainActivity extends Activity implements View.OnClickListener, Adap
         switch (v.getId())
         {
             case R.id.login_button:
-                final ProgressDialog pd = ProgressDialog.show(this, getString(R.string.logging_in), getString(R.string.wait_please));
-                v.postDelayed(new Runnable()
+                EditText login = (EditText) findViewById(R.id.login_text);
+                EditText pass = (EditText) findViewById(R.id.password_text);
+
+                if(login.getText().toString().equals("User") && pass.getText().toString().equals("User"))
                 {
-                    @Override
-                    public void run()
+                    final ProgressDialog pd = ProgressDialog.show(this, getString(R.string.logging_in), getString(R.string.wait_please));
+                    v.postDelayed(new Runnable()
                     {
-                        pd.dismiss();
-                        findViewById(R.id.login_layout).setVisibility(View.GONE);
-                        findViewById(R.id.main_layout).setVisibility(View.VISIBLE);
-                    }
-                }, 2000);
+                        @Override
+                        public void run()
+                        {
+                            pd.dismiss();
+                            findViewById(R.id.login_layout).setVisibility(View.GONE);
+                            findViewById(R.id.main_layout).setVisibility(View.VISIBLE);
+                        }
+                    }, 2000);
+                }
+                else
+                    new AlertDialog.Builder(this).setMessage(R.string.login_error).setPositiveButton(android.R.string.ok, null).show();
+
                 break;
             case R.id.confirm_button:
-                Cursor cur = mDatabase.rawQuery(MedDatabase.mainQueryWithParams + " LIKE \"%" + mSearchEdit.getText().toString() + "%\"", null);
-                CursorAdapter newPeopleListAdapter = new PeopleAdapter(this, cur);
-                mPeopleList.setAdapter(newPeopleListAdapter);
+                String filtered = mSearchEdit.getText().toString();
+                filtered = filtered.replace(".", "").replace("ул", "").replace("кв", "").replace("г", "");  // избавляемся от ненужного
 
-                peopleListAdapter.getCursor().close();
-                peopleListAdapter = newPeopleListAdapter;
+                String searchTerms[] = filtered.split(" "); // делим запрос на части
+                String query = MedDatabase.addressQuery;
+                for(int i = 0; i < searchTerms.length; ++i)
+                {
+                    if(searchTerms[i].equals(""))
+                        continue;
+
+                    if(query.endsWith(MedDatabase.addressQuery))
+                        query += " WHERE "; // если добавляем в первый раз
+                    else
+                        query += " AND ";   // если добавляем дополнительное условие
+
+                    query += MedDatabase.addressCols.get("city") + " || " + MedDatabase.addressCols.get("street") + " || " + MedDatabase.addressCols.get("street_num") + " || " + MedDatabase.addressCols.get("flat") + " LIKE " + "\'%" + searchTerms[i] + "%\'";
+                }
+
+                Cursor cur = mDatabase.rawQuery(query, null);
+                CursorAdapter newAddressAdapter = new AddressAdapter(this, cur);
+                mAddressList.setAdapter(newAddressAdapter);
+
+                addressAdapter.getCursor().close();
+                addressAdapter = newAddressAdapter;
                 break;
             case R.id.create_button:
                 startActivity(new Intent(this, ManCreateActivity.class));
@@ -82,10 +112,58 @@ public class MainActivity extends Activity implements View.OnClickListener, Adap
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+    public void onBackPressed()
     {
-        Intent intent = new Intent(this, ManCreateActivity.class);
-        intent.putExtra("ID", id);
-        startActivity(intent);
+        if(findViewById(R.id.search_layout).getVisibility() == View.VISIBLE)
+        {
+            findViewById(R.id.search_layout).setVisibility(View.GONE);
+            findViewById(R.id.main_layout).setVisibility(View.VISIBLE);
+        }
+        else
+            super.onBackPressed();
+    }
+
+    class addressClickListener implements AdapterView.OnItemClickListener
+    {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+        {
+            Cursor parentCur = addressAdapter.getCursor();
+            parentCur.moveToPosition(position);
+
+            Cursor cur = mDatabase.rawQuery(MedDatabase.mainQuery + " WHERE la." + MedDatabase.addressCols.get("ID") + "=?", new String[]{parentCur.getString(0)});
+            CursorAdapter newPeopleListAdapter = new PeopleAdapter(MainActivity.this, cur);
+
+            if(peopleAdapter != null)
+                peopleAdapter.getCursor().close();
+
+            peopleAdapter = newPeopleListAdapter;
+            mPeopleList.setAdapter(peopleAdapter);
+
+            findViewById(R.id.main_layout).setVisibility(View.GONE);
+            findViewById(R.id.search_layout).setVisibility(View.VISIBLE);
+        }
+    }
+
+    class manClickListener implements  AdapterView.OnItemClickListener
+    {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+        {
+            final ProgressDialog pd = ProgressDialog.show(view.getContext(), getString(R.string.connecting_to_card), getString(R.string.wait_please));
+            final long objectID = id;
+
+            view.postDelayed(new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                    pd.dismiss();
+                    Intent intent = new Intent(MainActivity.this, ManCreateActivity.class);
+                    intent.putExtra("ID", objectID);
+                    startActivity(intent);
+                }
+            }, 2000);
+        }
     }
 }

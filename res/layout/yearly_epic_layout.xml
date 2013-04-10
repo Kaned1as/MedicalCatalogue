@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/yearly_epicrisis"
+        android:id="@+id/yearly_epicrisis_hint"
+        android:gravity="center_horizontal"
+        android:textAppearance="@android:style/TextAppearance.Medium"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/yearly_epicrisis_date"
+        android:id="@+id/yearly_epicrisis_date_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/yearly_epicrisis_date"
+        android:hint="@string/yearly_epicrisis_date"
+        android:inputType="date"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/disease_consider"
+        android:id="@+id/disease_consider_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/disease_consider"
+        android:hint="@string/disease_consider"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_diagnosis"
+        android:id="@+id/main_diagnosis_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/main_diagnosis"
+        android:hint="@string/main_diagnosis"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/following_diagnosis"
+        android:id="@+id/following_diagnosis_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/following_diagnosis"
+        android:hint="@string/following_diagnosis"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/relapse_count"
+        android:id="@+id/relapse_count_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relapse_count"
+        android:hint="@string/relapse_count"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/treatment"
+        android:id="@+id/treatment_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/treatment"
+        android:hint="@string/treatment"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/disabled_group"
+        android:id="@+id/disabled_group_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/disabled_group"
+        android:hint="@string/disabled_group"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/treatment_sanatorium"
+        android:id="@+id/treatment_sanatorium_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/treatment_sanatorium"
+        android:hint="@string/treatment_sanatorium"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reabilitation"
+        android:id="@+id/reabilitation_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/reabilitation"
+        android:hint="@string/reabilitation"/>
+
+</merge>

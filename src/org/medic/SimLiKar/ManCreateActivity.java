@@ -34,6 +34,7 @@ public class ManCreateActivity extends Activity implements View.OnClickListener
     DatePicker mBirthDate;
     EditText mInsurGroup;
     EditText mInsurNum;
+    EditText mWorkAddr;
 
     SimpleDateFormat frm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
@@ -78,6 +79,7 @@ public class ManCreateActivity extends Activity implements View.OnClickListener
         mGender = (Spinner) findViewById(R.id.gender_spinner);
         mGender.setOnItemSelectedListener(mGenderListener);
         mBirthDate = (DatePicker) findViewById(R.id.birth_date);
+        mWorkAddr = (EditText) findViewById(R.id.work_address);
         mInsurGroup = (EditText) findViewById(R.id.insurance_group);
         mInsurNum = (EditText) findViewById(R.id.insurance_num);
     }
@@ -113,7 +115,8 @@ public class ManCreateActivity extends Activity implements View.OnClickListener
         mGender.setSelection(dataCursor.getInt(4));
         mGenderListener.selectedId = dataCursor.getInt(4);
 
-        // 5 и 6 - извлекаются далее
+        // 5 - извлекаются далее
+        mWorkAddr.setText(dataCursor.getString(6));
         Calendar birthDate = Calendar.getInstance();
         birthDate.setTime(frm.parse(dataCursor.getString(7)));
         mBirthDate.updateDate(birthDate.get(Calendar.YEAR), birthDate.get(Calendar.MONTH), birthDate.get(Calendar.DAY_OF_MONTH));
@@ -126,35 +129,38 @@ public class ManCreateActivity extends Activity implements View.OnClickListener
         EditText street = (EditText) findViewById(R.id.live_address_layout).findViewById(R.id.street);
         EditText street_num = (EditText) findViewById(R.id.live_address_layout).findViewById(R.id.street_num_text);
         EditText flat = (EditText) findViewById(R.id.live_address_layout).findViewById(R.id.flat_num);
-        city.setText(dataCursor.getString(19));
-        street.setText(dataCursor.getString(20));
-        street_num.setText(dataCursor.getString(21));
-        flat.setText(Integer.toString(dataCursor.getInt(22)));
+        city.setText(dataCursor.getString(20));
+        street.setText(dataCursor.getString(21));
+        street_num.setText(dataCursor.getString(22));
+        flat.setText(Integer.toString(dataCursor.getInt(23)));
 
         // 6
-        city = (EditText) findViewById(R.id.work_address_layout).findViewById(R.id.city_text);
-        street = (EditText) findViewById(R.id.work_address_layout).findViewById(R.id.street);
-        street_num = (EditText) findViewById(R.id.work_address_layout).findViewById(R.id.street_num_text);
-        flat = (EditText) findViewById(R.id.work_address_layout).findViewById(R.id.flat_num);
-        if(!dataCursor.isNull(21))
-        {
-            city.setText(dataCursor.getString(24));
-            street.setText(dataCursor.getString(25));
-            street_num.setText(dataCursor.getString(26));
-            flat.setText(Integer.toString(dataCursor.getInt(27)));
-        }
 
         LinearLayout signals = (LinearLayout) mDataLayout.findViewWithTag("1");
         deserializeTexts(dataCursor.getString(10), signals);
         LinearLayout diagnosis = (LinearLayout) mDataLayout.findViewWithTag("2");
         deserializeTexts(dataCursor.getString(11), diagnosis);
+        LinearLayout vaccination_info = (LinearLayout) mDataLayout.findViewWithTag("3");
+        deserializeTexts(dataCursor.getString(12), vaccination_info);
+        LinearLayout prof_survey = (LinearLayout) mDataLayout.findViewWithTag("4");
+        deserializeTexts(dataCursor.getString(13), prof_survey);
+        LinearLayout unwork_data = (LinearLayout) mDataLayout.findViewWithTag("5");
+        deserializeTexts(dataCursor.getString(14), unwork_data);
+        LinearLayout hospital_info = (LinearLayout) mDataLayout.findViewWithTag("6");
+        deserializeTexts(dataCursor.getString(15), hospital_info);
+        LinearLayout patient_diary = (LinearLayout) mDataLayout.findViewWithTag("7");
+        deserializeTexts(dataCursor.getString(16), patient_diary);
+        LinearLayout yearly_epic = (LinearLayout) mDataLayout.findViewWithTag("8");
+        deserializeTexts(dataCursor.getString(17), yearly_epic);
+        LinearLayout nextyear_plan = (LinearLayout) mDataLayout.findViewWithTag("9");
+        deserializeTexts(dataCursor.getString(18), nextyear_plan);
 
         // Обложка
         ((TextView)findViewById(R.id.fio_cover_text)).setText(mLastName.getText() + " " + mFirstName.getText() + " " + mMiddleName.getText());
         ((TextView)findViewById(R.id.gender_cover_text)).setText(getResources().getStringArray(R.array.genders)[mGenderListener.selectedId]);
         ((TextView)findViewById(R.id.birth_cover_text)).setText(frm.format(birthDate.getTime()));
-        ((TextView)findViewById(R.id.live_cover_text)).setText(getString(R.string.city) + dataCursor.getString(19) + " " + getString(R.string.street_hint) + " " + dataCursor.getString(20) + " " + dataCursor.getString(21) + " " + getString(R.string.flat_hint) + dataCursor.getString(22));
-        ((TextView)findViewById(R.id.work_cover_text)).setText(getString(R.string.city) + city.getText() + " " + getString(R.string.street_hint) + " " + street.getText() + " " + street_num.getText() + " " + getString(R.string.flat_hint) + flat.getText());
+        ((TextView)findViewById(R.id.live_cover_text)).setText(getString(R.string.city) + dataCursor.getString(20) + " " + getString(R.string.street_hint) + " " + dataCursor.getString(21) + " " + dataCursor.getString(22) + " " + getString(R.string.flat_hint) + dataCursor.getString(23));
+        ((TextView)findViewById(R.id.work_cover_text)).setText(mWorkAddr.getText());
     }
 
     @Override
@@ -194,6 +200,9 @@ public class ManCreateActivity extends Activity implements View.OnClickListener
             case R.id.save_button:
                 ContentValues CV = new ContentValues();
 
+                if(mID != -1)
+                    CV.put(MedDatabase.peopleCols.get("ID"), mID);
+
                 if(!mFirstName.getText().toString().isEmpty())
                     CV.put(MedDatabase.peopleCols.get("firstName"), mFirstName.getText().toString());
 
@@ -215,42 +224,21 @@ public class ManCreateActivity extends Activity implements View.OnClickListener
                 if(!mInsurNum.getText().toString().isEmpty())
                     CV.put(MedDatabase.peopleCols.get("insuranceNumber"), mInsurNum.getText().toString());
 
+                if(!mWorkAddr.getText().toString().isEmpty())
+                    CV.put(MedDatabase.peopleCols.get("workAddr"), mWorkAddr.getText().toString());
+
                 // Адрес проживания
                 String[] columns = new String[]{MedDatabase.addressCols.get("ID")};
                 String selection = MedDatabase.addressCols.get("city") + "=? AND " + MedDatabase.addressCols.get("street") + "=? AND " + MedDatabase.addressCols.get("street_num") + "=? AND " + MedDatabase.addressCols.get("flat") + "=?";
                 String[] projection = new String[]
-                {
-                    ((EditText)findViewById(R.id.work_address_layout).findViewById(R.id.city_text)).getText().toString(),
-                    ((EditText)findViewById(R.id.work_address_layout).findViewById(R.id.street)).getText().toString(),
-                    ((EditText)findViewById(R.id.work_address_layout).findViewById(R.id.street_num_text)).getText().toString(),
-                    ((EditText)findViewById(R.id.work_address_layout).findViewById(R.id.flat_num)).getText().toString()
-                };
-
-                Cursor cur = mDB.query(MedDatabase.addressTable, columns, selection, projection, null, null, null);
-                if(cur.moveToFirst()) // есть такой адрес
-                    CV.put(MedDatabase.peopleCols.get("workAddrID"), cur.getInt(0));
-                else
-                {
-                    ContentValues addrCV = new ContentValues();
-                    addrCV.put(MedDatabase.addressCols.get("city"), projection[0]);
-                    addrCV.put(MedDatabase.addressCols.get("street"), projection[1]);
-                    addrCV.put(MedDatabase.addressCols.get("street_num"), projection[2]);
-                    addrCV.put(MedDatabase.addressCols.get("flat"), projection[3]);
-                    long row = mDB.insert(MedDatabase.addressTable, null, addrCV);
-
-                    CV.put(MedDatabase.peopleCols.get("workAddrID"), row);
-                }
-                cur.close();
-
-                // Адрес работы
-                projection = new String[]
                 {
                     ((EditText)findViewById(R.id.live_address_layout).findViewById(R.id.city_text)).getText().toString(),
                     ((EditText)findViewById(R.id.live_address_layout).findViewById(R.id.street)).getText().toString(),
                     ((EditText)findViewById(R.id.live_address_layout).findViewById(R.id.street_num_text)).getText().toString(),
                     ((EditText)findViewById(R.id.live_address_layout).findViewById(R.id.flat_num)).getText().toString()
                 };
-                cur = mDB.query(MedDatabase.addressTable, columns, selection, projection, null, null, null);
+
+                Cursor cur = mDB.query(MedDatabase.addressTable, columns, selection, projection, null, null, null);
                 if(cur.moveToFirst()) // есть такой адрес
                     CV.put(MedDatabase.peopleCols.get("liveAddrID"), cur.getInt(0));
                 else
@@ -270,15 +258,44 @@ public class ManCreateActivity extends Activity implements View.OnClickListener
                 CV.put(MedDatabase.peopleCols.get("signalMarks"), serializeTexts(signals));
                 LinearLayout diagnosis = (LinearLayout) mDataLayout.findViewWithTag("2");
                 CV.put(MedDatabase.peopleCols.get("finalDiagnosisSheet"), serializeTexts(diagnosis));
+                LinearLayout vaccination_info = (LinearLayout) mDataLayout.findViewWithTag("3");
+                CV.put(MedDatabase.peopleCols.get("vaccinationInfo"), serializeTexts(vaccination_info));
+                LinearLayout prof_survey = (LinearLayout) mDataLayout.findViewWithTag("4");
+                CV.put(MedDatabase.peopleCols.get("profSurvey"), serializeTexts(prof_survey));
+                LinearLayout unwork_data = (LinearLayout) mDataLayout.findViewWithTag("5");
+                CV.put(MedDatabase.peopleCols.get("illDates"), serializeTexts(unwork_data));
+                LinearLayout hospital_info = (LinearLayout) mDataLayout.findViewWithTag("6");
+                CV.put(MedDatabase.peopleCols.get("hospitalInfo"), serializeTexts(hospital_info));
+                LinearLayout patient_diary = (LinearLayout) mDataLayout.findViewWithTag("7");
+                CV.put(MedDatabase.peopleCols.get("illDiary"), serializeTexts(patient_diary));
+                LinearLayout yearly_epic = (LinearLayout) mDataLayout.findViewWithTag("8");
+                CV.put(MedDatabase.peopleCols.get("yearlyEpicrisis"), serializeTexts(yearly_epic));
+                LinearLayout nextyear_plan = (LinearLayout) mDataLayout.findViewWithTag("9");
+                CV.put(MedDatabase.peopleCols.get("nextYearPlan"), serializeTexts(nextyear_plan));
 
-
-                long row = mDB.insert(MedDatabase.peopleTable, null, CV);
-                if(row < 0)
-                    Toast.makeText(this, R.string.error_already_exists, Toast.LENGTH_SHORT).show();
-                else
+                if(mID == -1) // создаем
                 {
-                    mDB.close();
-                    finish();
+                    long row = mDB.insert(MedDatabase.peopleTable, null, CV);
+                    if(row < 0)
+                        Toast.makeText(this, R.string.error_already_exists, Toast.LENGTH_SHORT).show();
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(), R.string.success_create, Toast.LENGTH_SHORT).show();
+                        mDB.close();
+                        finish();
+                    }
+                }
+                else  // сохраняем
+                {
+                    long row = mDB.replace(MedDatabase.peopleTable, null, CV);
+                    if(row < 0)
+                        Toast.makeText(this, R.string.error_cannot_save, Toast.LENGTH_SHORT).show();
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(), R.string.success_save, Toast.LENGTH_SHORT).show();
+                        mDB.close();
+                        finish();
+                    }
                 }
 
                 break;

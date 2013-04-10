@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/patient_diary"
+        android:id="@+id/patient_diary_hint"
+        android:gravity="center_horizontal"
+        android:textAppearance="@android:style/TextAppearance.Medium"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/call_date"
+        android:id="@+id/call_date_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/call_date"
+        android:hint="@string/call_date"
+        android:inputType="date"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/treatment_place"
+        android:id="@+id/treatment_place_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/treatment_place"
+        android:hint="@string/treatment_place"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/complaints"
+        android:id="@+id/complaints_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/complaints"
+        android:hint="@string/complaints"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/doctor_appointment"
+        android:id="@+id/doctor_appointment_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/doctor_appointment"
+        android:hint="@string/doctor_appointment"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/doctor_fio"
+        android:id="@+id/diary_doctor_fio_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/diary_doctor_fio"
+        android:hint="@string/doctor_fio"
+        android:inputType="textCapWords"/>
+
+</merge>

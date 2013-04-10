@@ -9,7 +9,8 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/login_layout">
+        android:id="@+id/login_layout"
+        android:visibility="visible">
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,7 +30,8 @@
             android:layout_alignParentTop="false"
             android:layout_marginTop="50dp"
             android:layout_alignTop="@+id/login_hint"
-            android:hint="@string/login"/>
+            android:hint="@string/login"
+            android:inputType="textCapWords"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -51,7 +53,7 @@
             android:layout_marginTop="50dp"
             android:layout_alignTop="@+id/password_hint"
             android:hint="@string/password"
-            android:inputType="textPassword"/>
+            android:inputType="textCapWords|textPassword"/>
 
         <Button
             android:layout_width="150dp"
@@ -95,7 +97,7 @@
         <ListView
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:id="@+id/clients_list"
+            android:id="@+id/address_list"
             android:layout_weight="1"
             />
 
@@ -104,6 +106,30 @@
             android:layout_height="wrap_content"
             android:text="@string/create"
             android:id="@+id/create_button"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:focusableInTouchMode="true"
+        android:id="@+id/search_layout"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/living_here"
+            android:id="@+id/textView"
+            android:gravity="center"
+            android:paddingTop="50dp"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:paddingBottom="25dp"/>
+
+        <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/patient_list"/>
     </LinearLayout>
 </LinearLayout>
 

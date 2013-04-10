@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-public class PeopleAdapter extends CursorAdapter
+public class AddressAdapter extends CursorAdapter
 {
 
-    public PeopleAdapter(Context context, Cursor c)
+    public AddressAdapter(Context context, Cursor c)
     {
         super(context, c, true);
     }
@@ -21,16 +21,16 @@ public class PeopleAdapter extends CursorAdapter
     {
         final LayoutInflater inflater = LayoutInflater.from(context);
         View newView = inflater.inflate(R.layout.man_list_item, viewGroup, false);
-        TextView name = (TextView) newView.findViewById(R.id.title);
-        name.setText(cursor.getString(1) + " " + cursor.getString(2) + " " + cursor.getString(3));
+        TextView address = (TextView) newView.findViewById(R.id.title);
+        address.setText(context.getString(R.string.city) + cursor.getString(1) + " " + context.getString(R.string.street_hint) + cursor.getString(2) + " " + cursor.getString(3) + " " + context.getString(R.string.flat_hint) + cursor.getString(4));
         return newView;
     }
 
     @Override
     public void bindView(View view, Context context, Cursor cursor)
     {
-        TextView name = (TextView) view.findViewById(R.id.title);
-        name.setText(cursor.getString(1) + " " + cursor.getString(2) + " " + cursor.getString(3));
+        TextView address = (TextView) view.findViewById(R.id.title);
+        address.setText(context.getString(R.string.city) + cursor.getString(1) + " " + context.getString(R.string.street_hint) + cursor.getString(2) + " " + cursor.getString(3) + " " + context.getString(R.string.flat_hint) + cursor.getString(4));
     }
 
     @Override

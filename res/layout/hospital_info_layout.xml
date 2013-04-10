@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hospital_info"
+        android:id="@+id/hospital_info_hint"
+        android:gravity="center_horizontal"
+        android:textAppearance="@android:style/TextAppearance.Medium"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hospital_date"
+        android:id="@+id/hospital_date_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/hospital_date"
+        android:hint="@string/hospital_date"
+        android:inputType="date"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hospital_org"
+        android:id="@+id/hospital_org_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/hospital_org"
+        android:hint="@string/hospital_org"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hospital_final_diagnosis"
+        android:id="@+id/hospital_final_diagnosis_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/hospital_final_diagnosis"
+        android:hint="@string/hospital_final_diagnosis"/>
+
+</merge>

@@ -207,19 +207,13 @@
                         android:id="@+id/work_address_hint"
                         android:textColor="@android:color/white"/>
 
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/work_address_layout">
-
-
-                        <include
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            layout="@layout/address_layout"
-                            android:id="@+id/work_address_inc"/>
-                    </LinearLayout>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/work_address"
+                        android:layout_gravity="left|center_vertical"
+                        android:hint="@string/work_address"
+                        android:inputType="textCapWords"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -309,135 +303,11 @@
                     android:tag="1"
                     android:visibility="gone">
 
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/signal_data"
-                        android:id="@+id/signal_data_hint"
-                        android:gravity="center_horizontal"
-                        android:textAppearance="@android:style/TextAppearance.Medium"/>
-
-                    <TextView
+                    <include
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/blood_group"
-                        android:id="@+id/blood_group_hint"
-                        android:layout_gravity="left|center_vertical"
-                        android:textColor="@android:color/white"/>
-
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/blood_group"
-                        android:hint="@string/blood_group"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/rh_factor_hint"
-                        android:id="@+id/rh_factor_hint"
-                        android:textColor="@android:color/white"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/rh_factor"
-                        android:hint="@string/rh_factor_hint"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/transfusions"
-                        android:id="@+id/transfusions_hint"
-                        android:textColor="@android:color/white"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/transfusions"
-                        android:layout_gravity="left|center_vertical"
-                        android:hint="@string/transfusions"
-                        android:inputType="textMultiLine"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/diabetes"
-                        android:id="@+id/diabetes_hint"
-                        android:layout_gravity="left|center_vertical"
-                        android:textColor="@android:color/white"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/diabetes"
-                        android:layout_gravity="left|center_vertical"
-                        android:hint="@string/diabetes"
-                        android:inputType="textMultiLine"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/infection_diseases"
-                        android:id="@+id/infection_diseases_hint"
-                        android:layout_gravity="left|center_vertical"
-                        android:textColor="@android:color/white"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/infection_diseases"
-                        android:layout_gravity="left|center_vertical"
-                        android:hint="@string/infection_diseases"
-                        android:inputType="textMultiLine"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/surgery_cases"
-                        android:id="@+id/surgery_cases_hint"
-                        android:layout_gravity="left|center_vertical"
-                        android:textColor="@android:color/white"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/surgery_cases"
-                        android:layout_gravity="left|center_vertical"
-                        android:hint="@string/surgery_cases"
-                        android:inputType="textMultiLine"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/allergic_anamnesis"
-                        android:id="@+id/allergic_anamnesis_hint"
-                        android:layout_gravity="left|center_vertical"
-                        android:textColor="@android:color/white"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/allergic_anamnesis"
-                        android:layout_gravity="left|center_vertical"
-                        android:hint="@string/allergic_anamnesis"
-                        android:inputType="textMultiLine"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/drug_intolerance"
-                        android:id="@+id/drug_intolerance_hint"
-                        android:layout_gravity="left|center_vertical"
-                        android:textColor="@android:color/white"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/drug_intolerance"
-                        android:layout_gravity="left|center_vertical"
-                        android:hint="@string/drug_intolerance"
-                        android:inputType="textMultiLine"/>
+                        layout="@layout/signal_marks_layout"
+                        android:id="@+id/signal_marks_inc"/>
 
                 </LinearLayout>
 
@@ -449,83 +319,123 @@
                     android:tag="2"
                     android:visibility="gone">
 
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/diagnosis_list"
-                        android:id="@+id/diagnosis_list_hint"
-                        android:gravity="center_horizontal"
-                        android:textAppearance="@android:style/TextAppearance.Medium"/>
-
-                    <TextView
+                    <include
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/date_accessed"
-                        android:id="@+id/date_accessed_hint"
-                        android:layout_gravity="left|center_vertical"
-                        android:textColor="@android:color/white"/>
+                        layout="@layout/diagnosis_list_layout"
+                        android:id="@+id/diagnosis_list_inc"/>
 
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/date_accessed"
-                        android:hint="@string/date_accessed"
-                        android:inputType="date"/>
+                </LinearLayout>
 
-                    <TextView
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/vaccination_info_layout"
+                    android:tag="3"
+                    android:visibility="gone">
+
+                    <include
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/final_diagnosis"
-                        android:id="@+id/final_diagnosis_hint"
-                        android:textColor="@android:color/white"/>
+                        layout="@layout/vaccination_info_layout"
+                        android:id="@+id/vaccination_info_inc"/>
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/final_diagnosis"
-                        android:hint="@string/final_diagnosis"/>
+                </LinearLayout>
 
-                    <TextView
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/prof_survey_layout"
+                    android:tag="4"
+                    android:visibility="gone">
+
+                    <include
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/first_diagnosis"
-                        android:id="@+id/first_diagnosis_hint"
-                        android:textColor="@android:color/white"/>
+                        layout="@layout/prof_survey_layout"
+                        android:id="@+id/prof_survey_inc"/>
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/first_diagnosis"
-                        android:hint="@string/first_diagnosis"/>
+                </LinearLayout>
 
-                    <TextView
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/unwork_data_layout"
+                    android:tag="5"
+                    android:visibility="gone">
+
+                    <include
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/with_prof_overview"
-                        android:id="@+id/with_prof_overview_hint"
-                        android:layout_gravity="left|center_vertical"
-                        android:textColor="@android:color/white"/>
+                        layout="@layout/unwork_data_layout"
+                        android:id="@+id/unwork_data_inc"/>
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/with_prof_overview"
-                        android:hint="@string/with_prof_overview"/>
+                </LinearLayout>
 
-                    <TextView
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/hospital_info_layout"
+                    android:tag="6"
+                    android:visibility="gone">
+
+                    <include
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/doctor_fio"
-                        android:id="@+id/doctor_fio_hint"
-                        android:layout_gravity="left|center_vertical"
-                        android:textColor="@android:color/white"/>
+                        layout="@layout/hospital_info_layout"
+                        android:id="@+id/hospital_info_inc"/>
 
-                    <EditText
-                        android:layout_width="match_parent"
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/patient_diary_layout"
+                    android:tag="7"
+                    android:visibility="gone">
+
+                    <include
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/doctor_fio"
-                        android:hint="@string/doctor_fio"
-                        android:inputType="textCapWords"/>
+                        layout="@layout/patient_diary_layout"
+                        android:id="@+id/patient_diary_inc"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/yearly_epic_layout"
+                    android:tag="8"
+                    android:visibility="gone">
+
+                    <include
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        layout="@layout/yearly_epic_layout"
+                        android:id="@+id/yearly_epic_inc"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/nextyear_plan_layout"
+                    android:tag="9"
+                    android:visibility="gone">
+
+                    <include
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        layout="@layout/nextyear_plan_layout"
+                        android:id="@+id/nextyear_plan_inc"/>
 
                 </LinearLayout>
 

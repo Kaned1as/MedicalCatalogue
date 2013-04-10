@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/nextyear_plan"
+        android:id="@+id/nextyear_plan_hint"
+        android:gravity="center_horizontal"
+        android:textAppearance="@android:style/TextAppearance.Medium"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/specs_surveyed"
+        android:id="@+id/specs_surveyed_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fio_1"
+        android:hint="@string/fio_YYMM"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fio_2"
+        android:hint="@string/fio_YYMM"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fio_3"
+        android:hint="@string/fio_YYMM"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fio_4"
+        android:hint="@string/fio_YYMM"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/research"
+        android:id="@+id/research_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/research"
+        android:hint="@string/research"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/medic_treatment"
+        android:id="@+id/medic_treatment_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/medic_treatment"
+        android:hint="@string/medic_treatment"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reabilitation"
+        android:id="@+id/reabilitation_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/reabilitation"
+        android:hint="@string/reabilitation"/>
+
+
+</merge>

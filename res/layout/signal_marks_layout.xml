@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/signal_data"
+        android:id="@+id/signal_data_hint"
+        android:gravity="center_horizontal"
+        android:textAppearance="@android:style/TextAppearance.Medium"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/blood_group"
+        android:id="@+id/blood_group_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/blood_group"
+        android:hint="@string/blood_group"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rh_factor_hint"
+        android:id="@+id/rh_factor_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rh_factor"
+        android:hint="@string/rh_factor_hint"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/transfusions"
+        android:id="@+id/transfusions_hint"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/transfusions"
+        android:layout_gravity="left|center_vertical"
+        android:hint="@string/transfusions"
+        android:inputType="textMultiLine"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/diabetes"
+        android:id="@+id/diabetes_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/diabetes"
+        android:layout_gravity="left|center_vertical"
+        android:hint="@string/diabetes"
+        android:inputType="textMultiLine"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/infection_diseases"
+        android:id="@+id/infection_diseases_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/infection_diseases"
+        android:layout_gravity="left|center_vertical"
+        android:hint="@string/infection_diseases"
+        android:inputType="textMultiLine"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/surgery_cases"
+        android:id="@+id/surgery_cases_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/surgery_cases"
+        android:layout_gravity="left|center_vertical"
+        android:hint="@string/surgery_cases"
+        android:inputType="textMultiLine"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/allergic_anamnesis"
+        android:id="@+id/allergic_anamnesis_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/allergic_anamnesis"
+        android:layout_gravity="left|center_vertical"
+        android:hint="@string/allergic_anamnesis"
+        android:inputType="textMultiLine"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/drug_intolerance"
+        android:id="@+id/drug_intolerance_hint"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/drug_intolerance"
+        android:layout_gravity="left|center_vertical"
+        android:hint="@string/drug_intolerance"
+        android:inputType="textMultiLine"/>
+
+</merge>
